@@ -2,7 +2,7 @@
 #define CHATBOT_H_
 
 #include <wx/bitmap.h>
-#include <string>
+#include <string> 
 
 class GraphNode; // forward declaration
 class ChatLogic; // forward declaration
@@ -27,12 +27,11 @@ public:
     ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
 
-    //// STUDENT CODE
-    ////
-
-    ////
-    //// EOF STUDENT CODE
-
+    ChatBot(ChatBot &source);            // copy constructor
+    ChatBot &operator=(ChatBot &source); // copy assignment operator
+    ChatBot(ChatBot &&source);           // move constructor
+    ChatBot &operator=(ChatBot &&source); // move assignment operator
+    
     // getters / setters
     void SetCurrentNode(GraphNode *node);
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
